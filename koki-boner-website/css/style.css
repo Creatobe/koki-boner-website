@@ -1,0 +1,2064 @@
+/* ============================================
+   KOKI BONER - PROFESSIONAL CSS STYLESHEET
+   ============================================ */
+
+/* ==========================================
+   1. CSS VARIABLES & ROOT STYLES
+   ========================================== */
+
+:root {
+    /* Color Palette */
+    --color-ocean: #0a4d68;
+    --color-ocean-light: #088395;
+    --color-ocean-lighter: #05bfdb;
+    --color-sand: #f4e4c1;
+    --color-sand-dark: #d4a574;
+    --color-white: #ffffff;
+    --color-beige: #faf8f3;
+    --color-green: #2d5016;
+    --color-green-light: #5a8c3b;
+    --color-gold: #d4af37;
+    --color-coral: #ff6b6b;
+    --color-text-dark: #1a1a1a;
+    --color-black: #000000;
+    --color-text-light: #666666;
+    --color-text-very-light: #999999;
+    --color-overlay: rgba(10, 77, 104, 0.6);
+    
+    /* Typography - UPDATED */
+    --font-display: 'Poppins', sans-serif;
+    --font-body: 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extra-bold: 800;
+    --font-weight-black: 900;
+    
+    /* Sizing */
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 24px;
+    --spacing-lg: 32px;
+    --spacing-xl: 48px;
+    --spacing-2xl: 64px;
+    
+    /* Typography Sizes */
+    --font-h1: 4rem;
+    --font-h2: 3rem;
+    --font-h3: 1.8rem;
+    --font-h4: 1.3rem;
+    --font-body-large: 1.1rem;
+    --font-body: 1rem;
+    --font-body-small: 0.9rem;
+    
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 20px;
+    --radius-2xl: 32px;
+    
+    /* Transitions */
+    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-slow: 0.5s ease-out;
+    --transition-slower: 0.8s ease-out;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.2);
+    --shadow-xl: 0 12px 48px rgba(0, 0, 0, 0.25);
+    --shadow-inset: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================
+   2. RESET & GENERAL STYLES
+   ========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text-dark);
+    background-color: var(--color-white);
+    line-height: 1.6;
+    overflow-x: hidden;
+    padding-top: 80px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-fast);
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* Section Titles */
+.section-title {
+    font-family: var(--font-display);
+    font-size: var(--font-h2);
+    font-weight: var(--font-weight-black);
+    color: var(--color-black);
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+    animation: fadeIn 0.8s ease-out;
+    letter-spacing: -0.5px;
+}
+
+.section-subtitle {
+    font-size: var(--font-h4);
+    color: var(--color-text-light);
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+    font-weight: var(--font-weight-light);
+    animation: fadeIn 0.8s ease-out 0.2s both;
+    font-family: var(--font-body);
+}
+
+/* ==========================================
+   3. ANIMATIONS & EFFECTS
+   ========================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes floatingAlt {
+    0%, 100% {
+        transform: translateY(-5px);
+    }
+    50% {
+        transform: translateY(5px);
+    }
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+@keyframes smoothBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes glassFade {
+    from {
+        opacity: 0;
+        backdrop-filter: blur(0px);
+    }
+    to {
+        opacity: 1;
+        backdrop-filter: blur(10px);
+    }
+}
+
+/* Parallax Effect */
+@keyframes parallaxMove {
+    0% {
+        transform: translateY(0px) scale(1);
+    }
+    100% {
+        transform: translateY(30px) scale(1.05);
+    }
+}
+
+/* ==========================================
+   4. BUTTON STYLES & GLASSMORPHISM
+   ========================================== */
+
+.btn {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--radius-xl);
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-body);
+    transition: all var(--transition-smooth);
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    backdrop-filter: blur(10px);
+    font-family: var(--font-display);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left var(--transition-smooth);
+    z-index: -1;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn-primary {
+    background-color: var(--color-ocean);
+    color: var(--color-white);
+    border: 2px solid var(--color-ocean);
+    box-shadow: 0 4px 15px rgba(10, 77, 104, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-ocean-light);
+    border-color: var(--color-ocean-light);
+    box-shadow: 0 8px 25px rgba(10, 77, 104, 0.5);
+    transform: translateY(-4px);
+}
+
+.btn-primary:active {
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-white);
+    border: 2px solid var(--color-white);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-white);
+    color: var(--color-ocean);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+    transform: translateY(-4px);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--color-ocean);
+    border: 2px solid var(--color-ocean);
+    font-family: var(--font-display);
+}
+
+.btn-outline:hover {
+    background-color: var(--color-ocean);
+    color: var(--color-white);
+    box-shadow: 0 4px 20px rgba(10, 77, 104, 0.4);
+    transform: translateY(-3px);
+}
+
+.btn-large {
+    padding: var(--spacing-md) var(--spacing-2xl);
+    font-size: var(--font-h4);
+}
+
+/* Glass Card Style */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-2xl);
+}
+
+.glass-effect:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all var(--transition-smooth);
+}
+
+/* ==========================================
+   5. HEADER & NAVIGATION - ENHANCED CSS-ONLY
+   ========================================== */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-smooth);
+    transform: translateY(0);
+}
+
+.header:hover {
+    background: rgba(255, 255, 255, 0.99);
+    backdrop-filter: blur(25px);
+    box-shadow: 0 6px 40px rgba(0, 0, 0, 0.15);
+}
+
+.navbar {
+    padding: var(--spacing-md) 0;
+}
+
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    animation: slideDown 0.6s ease-out;
+}
+
+.logo-text {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: var(--font-weight-black);
+    color: var(--color-black);
+    margin: 0;
+    letter-spacing: 2px;
+    transition: color var(--transition-fast);
+}
+
+.header:hover .logo-text {
+    color: var(--color-ocean);
+}
+
+.logo-tagline {
+    font-size: var(--font-body-small);
+    color: var(--color-sand);
+    font-weight: var(--font-weight-light);
+    margin: 4px 0 0 0;
+    letter-spacing: 1px;
+    transition: color var(--transition-fast);
+    font-family: var(--font-body);
+}
+
+.header:hover .logo-tagline {
+    color: var(--color-text-very-light);
+}
+
+/* Navigation Menu */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-xl);
+    animation: slideDown 0.6s ease-out 0.1s both;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    font-size: var(--font-body);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-black);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    transition: color var(--transition-fast);
+    position: relative;
+    font-family: var(--font-display);
+}
+
+.header:hover .nav-link {
+    color: var(--color-ocean);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-ocean-lighter), var(--color-ocean-light));
+    transition: width var(--transition-smooth);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: var(--color-ocean-lighter);
+}
+
+/* ==========================================
+   6. HERO SECTION - WITH PARALLAX
+   ========================================== */
+
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: 1;
+    animation: parallaxMove 20s ease-in-out infinite;
+    will-change: transform;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(10, 77, 104, 0.5) 0%, 
+        rgba(5, 191, 219, 0.3) 100%);
+    z-index: 2;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: var(--color-white);
+    animation: fadeIn 0.8s ease-out;
+}
+
+.hero-title {
+    font-family: var(--font-display);
+    font-size: var(--font-h1);
+    font-weight: var(--font-weight-black);
+    margin-bottom: var(--spacing-md);
+    animation: slideUp 0.8s ease-out 0.2s both;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+    letter-spacing: 2px;
+}
+
+.hero-subtitle {
+    font-size: 1.8rem;
+    font-weight: var(--font-weight-regular);
+    margin-bottom: var(--spacing-md);
+    animation: slideUp 0.8s ease-out 0.4s both;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 1.5px;
+    font-family: var(--font-body);
+}
+
+.hero-description {
+    font-size: var(--font-body-large);
+    max-width: 600px;
+    margin: 0 auto var(--spacing-2xl);
+    animation: slideUp 0.8s ease-out 0.6s both;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-light);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: var(--spacing-lg);
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: slideUp 0.8s ease-out 0.8s both;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    animation: floatingAlt 2.5s ease-in-out infinite;
+}
+
+.scroll-indicator span {
+    display: block;
+    width: 30px;
+    height: 50px;
+    border: 2px solid var(--color-white);
+    border-radius: 15px;
+    position: relative;
+}
+
+.scroll-indicator span::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 12px;
+    background-color: var(--color-white);
+    border-radius: 2px;
+    animation: floatingAlt 2.5s ease-in-out infinite;
+}
+
+/* ==========================================
+   7. ABOUT SECTION - ENHANCED EFFECTS
+   ========================================== */
+
+.about {
+    padding: var(--spacing-2xl) 0;
+    background-color: var(--color-beige);
+}
+
+.about-container {
+    display: flex;
+    gap: var(--spacing-2xl);
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.about-image {
+    flex: 1;
+    min-height: 500px;
+    overflow: hidden;
+    border-radius: var(--radius-2xl);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    animation: slideInLeft 0.8s ease-out;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slower);
+    filter: brightness(1) saturate(1.05);
+}
+
+.about-image:hover img {
+    transform: scale(1.08) rotate(1deg);
+    filter: brightness(1.05) saturate(1.15);
+}
+
+.about-content {
+    flex: 1;
+    animation: slideInRight 0.8s ease-out 0.2s both;
+}
+
+.about-content .section-title {
+    text-align: left;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-black);
+}
+
+.about-content .section-subtitle {
+    text-align: left;
+    margin-bottom: var(--spacing-lg);
+}
+
+.about-text p {
+    font-size: var(--font-body-large);
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.8;
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-regular);
+}
+
+.about-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+}
+
+.feature-item {
+    background-color: var(--color-white);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all var(--transition-smooth);
+    border-left: 4px solid var(--color-ocean);
+    animation: slideUp 0.6s ease-out;
+}
+
+.feature-item:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.feature-item:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.feature-item:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.feature-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    border-left-color: var(--color-ocean-lighter);
+}
+
+.feature-item h3 {
+    font-size: var(--font-h4);
+    color: var(--color-black);
+    margin-bottom: var(--spacing-sm);
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-bold);
+}
+
+.feature-item p {
+    font-size: var(--font-body-small);
+    color: var(--color-text-light);
+    font-family: var(--font-body);
+}
+
+/* ==========================================
+   8. ACCOMMODATION SECTION - GLASS CARDS
+   ========================================== */
+
+.accommodation {
+    padding: var(--spacing-2xl) 0;
+    background-color: var(--color-white);
+}
+
+.accommodation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+}
+
+.room-card {
+    background-color: var(--color-white);
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all var(--transition-smooth);
+    animation: slideUp 0.6s ease-out;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.room-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.room-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.room-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.room-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.room-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slower);
+    filter: brightness(1) contrast(1);
+}
+
+.room-card:hover .room-image img {
+    transform: scale(1.15) rotate(2deg);
+    filter: brightness(1.08) contrast(1.1);
+}
+
+.room-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 77, 104, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity var(--transition-smooth);
+    backdrop-filter: blur(5px);
+}
+
+.room-card:hover .room-overlay {
+    opacity: 1;
+}
+
+.room-overlay p {
+    color: var(--color-white);
+    font-size: var(--font-h3);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-display);
+}
+
+.room-info {
+    padding: var(--spacing-lg);
+}
+
+.room-info h3 {
+    font-family: var(--font-display);
+    font-size: var(--font-h3);
+    color: var(--color-black);
+    margin-bottom: var(--spacing-sm);
+    font-weight: var(--font-weight-black);
+}
+
+.room-category {
+    color: var(--color-text-light);
+    font-size: var(--font-body-small);
+    margin-bottom: var(--spacing-md);
+    font-family: var(--font-body);
+}
+
+.room-amenities {
+    list-style: none;
+    margin-bottom: var(--spacing-lg);
+}
+
+.room-amenities li {
+    padding: var(--spacing-sm) 0;
+    padding-left: var(--spacing-lg);
+    position: relative;
+    color: var(--color-text-light);
+    font-size: var(--font-body-small);
+    font-family: var(--font-body);
+}
+
+.room-amenities li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-ocean-lighter);
+    font-weight: bold;
+}
+
+/* ==========================================
+   9. RESTAURANT SECTION - GLASSMORPHISM
+   ========================================== */
+
+.restaurant {
+    background-color: var(--color-white);
+}
+
+.restaurant-hero {
+    position: relative;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.restaurant-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(10, 77, 104, 0.6) 0%, 
+        rgba(212, 175, 55, 0.3) 100%);
+}
+
+.restaurant-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: var(--color-white);
+}
+
+.restaurant-content h2 {
+    font-family: var(--font-display);
+    font-size: var(--font-h1);
+    font-weight: var(--font-weight-black);
+    margin-bottom: var(--spacing-md);
+    text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.4);
+    letter-spacing: 1.5px;
+    animation: slideUp 0.8s ease-out;
+}
+
+.restaurant-content p {
+    font-size: var(--font-h3);
+    font-weight: var(--font-weight-regular);
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+    font-family: var(--font-body);
+    animation: slideUp 0.8s ease-out 0.2s both;
+}
+
+.restaurant .container {
+    padding: var(--spacing-2xl) var(--spacing-md);
+}
+
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.food-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    transition: all var(--transition-smooth);
+    animation: slideUp 0.6s ease-out;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.food-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.food-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.food-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+}
+
+.food-image {
+    position: relative;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.food-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 77, 104, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity var(--transition-smooth);
+    backdrop-filter: blur(10px);
+}
+
+.food-card:hover .food-overlay {
+    opacity: 1;
+}
+
+.food-overlay h3 {
+    color: var(--color-white);
+    font-size: var(--font-h3);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-display);
+}
+
+.food-content {
+    padding: var(--spacing-lg);
+    position: relative;
+}
+
+.food-content p {
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-md);
+    font-family: var(--font-body);
+}
+
+.cuisine-tag {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--color-sand), var(--color-sand-dark));
+    color: var(--color-black);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-md);
+    font-size: var(--font-body-small);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-display);
+}
+
+.restaurant-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.info-box {
+    background: rgba(244, 228, 193, 0.6);
+    backdrop-filter: blur(10px);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    transition: all var(--transition-smooth);
+    animation: slideUp 0.6s ease-out;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.info-box:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.info-box:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.info-box:hover {
+    transform: translateY(-8px);
+    background: rgba(244, 228, 193, 0.8);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+.info-box h4 {
+    font-size: var(--font-h4);
+    color: var(--color-black);
+    margin-bottom: var(--spacing-md);
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-bold);
+}
+
+.info-box p {
+    color: var(--color-text-light);
+    font-size: var(--font-body-small);
+    font-family: var(--font-body);
+}
+
+/* ==========================================
+   10. EXPERIENCES SECTION - SMOOTH EFFECTS
+   ========================================== */
+
+.experiences {
+    padding: var(--spacing-2xl) 0;
+    background-color: var(--color-beige);
+}
+
+.experiences-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.experience-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-2xl);
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transition: all var(--transition-smooth);
+    animation: slideUp 0.6s ease-out;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    position: relative;
+    overflow: hidden;
+}
+
+.experience-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(5, 191, 219, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity var(--transition-smooth);
+}
+
+.experience-card:hover::before {
+    opacity: 1;
+}
+
+.experience-card:nth-child(2) {
+    animation-delay: 0.05s;
+}
+
+.experience-card:nth-child(3) {
+    animation-delay: 0.1s;
+}
+
+.experience-card:nth-child(4) {
+    animation-delay: 0.15s;
+}
+
+.experience-card:nth-child(5) {
+    animation-delay: 0.2s;
+}
+
+.experience-card:nth-child(6) {
+    animation-delay: 0.25s;
+}
+
+.experience-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+}
+
+.experience-icon {
+    font-size: 3.5rem;
+    margin-bottom: var(--spacing-md);
+    animation: floatingAlt 3s ease-in-out infinite;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.experience-card:hover .experience-icon {
+    animation: floating 2s ease-in-out infinite;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
+}
+
+.experience-card h3 {
+    font-family: var(--font-display);
+    font-size: var(--font-h3);
+    color: var(--color-black);
+    margin-bottom: var(--spacing-md);
+    font-weight: var(--font-weight-bold);
+}
+
+.experience-card p {
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-lg);
+    font-size: var(--font-body);
+    font-family: var(--font-body);
+    line-height: 1.7;
+}
+
+.experience-link {
+    display: inline-block;
+    color: var(--color-ocean);
+    font-weight: var(--font-weight-semibold);
+    transition: all var(--transition-fast);
+    position: relative;
+    font-family: var(--font-display);
+}
+
+.experience-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-ocean-lighter), var(--color-ocean));
+    transition: width var(--transition-smooth);
+}
+
+.experience-link:hover::after {
+    width: 100%;
+}
+
+.experience-link:hover {
+    color: var(--color-ocean-light);
+}
+
+/* ==========================================
+   11. GALLERY SECTION - IMAGE ZOOM
+   ========================================== */
+
+.gallery {
+    padding: var(--spacing-2xl) 0;
+    background-color: var(--color-white);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    animation: fadeIn 0.8s ease-out;
+}
+
+.gallery-item {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+    border-radius: var(--radius-xl);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all var(--transition-smooth);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slower);
+    filter: brightness(1) saturate(1) blur(0px);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.25) rotate(3deg);
+    filter: brightness(1.1) saturate(1.2) blur(0px);
+}
+
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 77, 104, 0.3);
+    opacity: 0;
+    transition: opacity var(--transition-smooth);
+}
+
+.gallery-item:hover::after {
+    opacity: 1;
+}
+
+/* ==========================================
+   12. TESTIMONIALS SECTION - GLASS EFFECT
+   ========================================== */
+
+.testimonials {
+    padding: var(--spacing-2xl) 0;
+    background-color: var(--color-beige);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.testimonial-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-2xl);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    transition: all var(--transition-smooth);
+    animation: slideUp 0.6s ease-out;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-top: 4px solid var(--color-gold);
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity var(--transition-smooth);
+}
+
+.testimonial-card:hover::before {
+    opacity: 1;
+}
+
+.testimonial-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.testimonial-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-header {
+    margin-bottom: var(--spacing-md);
+}
+
+.testimonial-rating {
+    color: var(--color-gold);
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+.testimonial-text {
+    color: var(--color-text-light);
+    font-size: var(--font-body);
+    margin-bottom: var(--spacing-lg);
+    font-style: italic;
+    line-height: 1.8;
+    font-family: var(--font-body);
+    position: relative;
+    z-index: 1;
+}
+
+.testimonial-author {
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.author-name {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-black);
+    margin-bottom: var(--spacing-xs);
+    font-family: var(--font-display);
+}
+
+.author-location {
+    font-size: var(--font-body-small);
+    color: var(--color-text-light);
+    font-family: var(--font-body);
+}
+
+/* ==========================================
+   13. CONTACT SECTION
+   ========================================== */
+
+.contact {
+    padding: var(--spacing-2xl) 0;
+    background: linear-gradient(135deg, 
+        var(--color-ocean) 0%, 
+        var(--color-ocean-light) 100%);
+    color: var(--color-white);
+}
+
+.contact .section-title {
+    color: var(--color-white);
+}
+
+.contact .section-subtitle {
+    color: var(--color-sand);
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2xl);
+    align-items: center;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+}
+
+.info-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all var(--transition-normal);
+    animation: slideUp 0.6s ease-out;
+}
+
+.info-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.info-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.info-card:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.info-card:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+}
+
+.info-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.info-card h3 {
+    font-size: var(--font-h4);
+    margin-bottom: var(--spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.info-card p {
+    font-size: var(--font-body-small);
+    margin-bottom: var(--spacing-xs);
+}
+
+.info-card a {
+    color: var(--color-sand);
+    transition: color var(--transition-fast);
+}
+
+.info-card a:hover {
+    color: var(--color-white);
+}
+
+.info-subtitle {
+    font-size: var(--font-body-small);
+    color: var(--color-sand);
+    margin-top: var(--spacing-xs);
+}
+
+.booking-section {
+    text-align: center;
+    animation: slideUp 0.6s ease-out 0.2s both;
+}
+
+.booking-section h3 {
+    font-family: var(--font-display);
+    font-size: var(--font-h2);
+    margin-bottom: var(--spacing-md);
+}
+
+.booking-section p {
+    font-size: var(--font-body-large);
+    margin-bottom: var(--spacing-xl);
+}
+
+.booking-note {
+    font-size: var(--font-body-small);
+    color: var(--color-sand);
+    margin-top: var(--spacing-md);
+}
+
+/* ==========================================
+   14. FOOTER - ENHANCED
+   ========================================== */
+
+.footer {
+    background-color: var(--color-text-dark);
+    color: var(--color-white);
+    padding: var(--spacing-2xl) 0 var(--spacing-lg);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.footer-brand h3 {
+    font-family: var(--font-display);
+    font-size: var(--font-h3);
+    margin-bottom: var(--spacing-md);
+    font-weight: var(--font-weight-black);
+    color: var(--color-sand);
+}
+
+.footer-brand p {
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-body-small);
+    font-family: var(--font-body);
+}
+
+.footer-location {
+    color: var(--color-sand);
+}
+
+.footer-links h4,
+.footer-contact h4,
+.footer-social h4 {
+    font-size: var(--font-h4);
+    margin-bottom: var(--spacing-md);
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-bold);
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-links a,
+.footer-contact p {
+    color: var(--color-text-very-light);
+    font-size: var(--font-body-small);
+    transition: all var(--transition-fast);
+    font-family: var(--font-body);
+}
+
+.footer-links a:hover {
+    color: var(--color-sand);
+    transform: translateX(5px);
+}
+
+.social-icons {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(5, 191, 219, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    transition: all var(--transition-smooth);
+    font-weight: var(--font-weight-bold);
+    border: 1px solid rgba(5, 191, 219, 0.4);
+}
+
+.social-link:hover {
+    background: var(--color-ocean);
+    transform: translateY(-5px) scale(1.1);
+    border: 1px solid var(--color-ocean-lighter);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: var(--spacing-lg);
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+}
+
+.footer-bottom p {
+    font-size: var(--font-body-small);
+    color: var(--color-text-very-light);
+    margin-bottom: var(--spacing-xs);
+    font-family: var(--font-body);
+}
+
+/* ==========================================
+   15. ENHANCED RESPONSIVE DESIGN
+   ========================================== */
+
+/* Large Desktop - 1400px and above */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1380px;
+    }
+    
+    .about-container {
+        gap: var(--spacing-2xl);
+    }
+}
+
+/* Desktop - 1024px to 1399px */
+@media (max-width: 1399px) {
+    :root {
+        --font-h1: 3.5rem;
+        --font-h2: 2.5rem;
+    }
+}
+
+/* Tablet - 768px to 1023px */
+@media (max-width: 1023px) {
+    :root {
+        --font-h1: 2.8rem;
+        --font-h2: 2.2rem;
+        --font-h3: 1.6rem;
+        --font-h4: 1.1rem;
+        --spacing-2xl: 48px;
+        --spacing-xl: 32px;
+        --spacing-lg: 24px;
+    }
+
+    .navbar-container {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        width: 100%;
+        text-align: center;
+    }
+
+    .about-container {
+        flex-direction: column;
+        gap: var(--spacing-xl);
+    }
+
+    .about-image {
+        min-height: 350px;
+    }
+
+    .about-features {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+
+    .contact-info {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .accommodation-grid,
+    .food-grid,
+    .experiences-grid,
+    .testimonials-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+/* Small Tablet - 640px to 767px */
+@media (max-width: 767px) {
+    :root {
+        --font-h1: 2.2rem;
+        --font-h2: 1.8rem;
+        --font-h3: 1.4rem;
+        --font-h4: 1rem;
+        --font-body-large: 1rem;
+        --spacing-2xl: 40px;
+        --spacing-xl: 24px;
+        --spacing-lg: 16px;
+    }
+
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .navbar {
+        padding: var(--spacing-sm) 0;
+    }
+
+    .logo-text {
+        font-size: 1.5rem;
+    }
+
+    .nav-menu {
+        gap: var(--spacing-md);
+    }
+
+    .nav-link {
+        font-size: 0.95rem;
+    }
+
+    .hero {
+        margin-top: 50px;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-description {
+        font-size: 0.95rem;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .accommodation-grid,
+    .food-grid,
+    .experiences-grid,
+    .testimonials-grid,
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .contact-info {
+        grid-template-columns: 1fr;
+    }
+
+    .btn {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: var(--font-body-small);
+    }
+
+    .btn-large {
+        padding: var(--spacing-md) var(--spacing-lg);
+        font-size: var(--font-h4);
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .about-features {
+        gap: var(--spacing-md);
+    }
+
+    .room-image,
+    .food-image {
+        height: 200px;
+    }
+}
+
+/* Mobile - 480px to 639px */
+@media (max-width: 639px) {
+    :root {
+        --font-h1: 1.8rem;
+        --font-h2: 1.5rem;
+        --font-h3: 1.2rem;
+        --font-h4: 0.95rem;
+        --font-body-large: 0.95rem;
+        --font-body: 0.9rem;
+        --font-body-small: 0.85rem;
+        --spacing-2xl: 32px;
+        --spacing-xl: 20px;
+        --spacing-lg: 16px;
+        --spacing-md: 12px;
+    }
+
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .navbar {
+        padding: var(--spacing-sm) 0;
+    }
+
+    .navbar-container {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .logo-text {
+        font-size: 1.3rem;
+        letter-spacing: 1px;
+    }
+
+    .logo-tagline {
+        font-size: 0.75rem;
+    }
+
+    .nav-menu {
+        gap: var(--spacing-sm);
+        flex-wrap: wrap;
+    }
+
+    .nav-link {
+        font-size: 0.85rem;
+        letter-spacing: 0.5px;
+    }
+
+    .hero {
+        margin-top: 0;
+        min-height: 500px;
+    }
+
+    .hero-title {
+        font-size: 1.6rem;
+        letter-spacing: 0.5px;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .hero-description {
+        font-size: 0.85rem;
+        margin: 0 auto var(--spacing-xl);
+    }
+
+    .scroll-indicator {
+        bottom: 20px;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .section-subtitle {
+        font-size: 0.85rem;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .accommodation-grid,
+    .food-grid,
+    .experiences-grid,
+    .testimonials-grid,
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .contact-content {
+        gap: var(--spacing-lg);
+    }
+
+    .contact-info {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .btn {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+        letter-spacing: 0.8px;
+    }
+
+    .btn-large {
+        padding: 12px 24px;
+        font-size: 0.95rem;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-outline {
+        width: 100%;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+        text-align: center;
+    }
+
+    .footer-brand h3,
+    .footer-links h4,
+    .footer-contact h4,
+    .footer-social h4 {
+        font-size: var(--font-h4);
+        margin-bottom: var(--spacing-md);
+    }
+
+    .about-container {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .about-image {
+        min-height: 250px;
+    }
+
+    .about-features {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .feature-item {
+        padding: var(--spacing-md);
+    }
+
+    .feature-item h3 {
+        font-size: 1rem;
+    }
+
+    .feature-item p {
+        font-size: 0.8rem;
+    }
+
+    .room-image,
+    .food-image {
+        height: 180px;
+    }
+
+    .room-amenities li {
+        padding: var(--spacing-xs) 0;
+        padding-left: var(--spacing-md);
+    }
+
+    .experience-icon {
+        font-size: 2.8rem;
+    }
+
+    .gallery-item {
+        height: 200px;
+    }
+
+    .info-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .social-icons {
+        justify-content: center;
+        gap: var(--spacing-sm);
+    }
+
+    .social-link {
+        width: 36px;
+        height: 36px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Extra Small - Below 480px */
+@media (max-width: 479px) {
+    :root {
+        --font-h1: 1.5rem;
+        --font-h2: 1.3rem;
+        --font-h3: 1rem;
+        --font-h4: 0.9rem;
+        --font-body-large: 0.9rem;
+        --font-body: 0.85rem;
+        --font-body-small: 0.8rem;
+        --spacing-2xl: 24px;
+        --spacing-xl: 16px;
+        --spacing-lg: 12px;
+        --spacing-md: 8px;
+    }
+
+    .navbar {
+        padding: 8px 0;
+    }
+
+    .logo-text {
+        font-size: 1.1rem;
+        letter-spacing: 0.5px;
+    }
+
+    .logo-tagline {
+        font-size: 0.65rem;
+    }
+
+    .nav-menu {
+        gap: 8px;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .nav-link {
+        font-size: 0.75rem;
+        letter-spacing: 0px;
+    }
+
+    .hero {
+        margin-top: 35px;
+    }
+
+    .hero-title {
+        font-size: 1.4rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.8rem;
+    }
+
+    .hero-buttons {
+        gap: var(--spacing-sm);
+    }
+
+    .section-title {
+        font-size: 1.2rem;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-outline {
+        width: 100%;
+        padding: 8px 12px;
+    }
+
+    .about-content .section-title {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .room-info h3 {
+        font-size: 1.1rem;
+    }
+
+    .experience-icon {
+        font-size: 2.5rem;
+    }
+}
+
+/* ==========================================
+   16. UTILITY CLASSES
+   ========================================== */
+
+.text-center {
+    text-align: center;
+}
+
+.text-white {
+    color: var(--color-white);
+}
+
+.mt-small {
+    margin-top: var(--spacing-sm);
+}
+
+.mt-medium {
+    margin-top: var(--spacing-md);
+}
+
+.mt-large {
+    margin-top: var(--spacing-lg);
+}
+
+.mb-small {
+    margin-bottom: var(--spacing-sm);
+}
+
+.mb-medium {
+    margin-bottom: var(--spacing-md);
+}
+
+.mb-large {
+    margin-bottom: var(--spacing-lg);
+}

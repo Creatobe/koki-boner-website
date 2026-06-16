@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Book Your Stay at Koki Boner Villa & Resto Bar">
+    <meta name="keywords" content="Booking, Reservation, Koki Boner, Villa, Rodrigues Island">
+    <title>Book Your Stay - Koki Boner Villa & Resto Bar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Helvetica+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Booking Page Specific Styles */
+        .booking-page {
+            padding-top: 80px;
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(10, 77, 104, 0.05) 0%, rgba(244, 228, 193, 0.05) 100%);
+        }
+
+        .booking-container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .booking-header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .booking-header h1 {
+            font-family: var(--font-display);
+            font-size: var(--font-h1);
+            font-weight: var(--font-weight-black);
+            color: var(--color-black);
+            margin-bottom: var(--spacing-sm);
+            letter-spacing: -0.5px;
+        }
+
+        .booking-header p {
+            font-size: var(--font-body-large);
+            color: var(--color-text-light);
+            font-family: var(--font-body);
+            font-weight: var(--font-weight-light);
+        }
+
+        .booking-form {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-2xl);
+            padding: 48px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            animation: slideUp 0.8s ease-out 0.2s both;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-black);
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            border: 2px solid rgba(10, 77, 104, 0.2);
+            border-radius: var(--radius-lg);
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--color-text-dark);
+            transition: all var(--transition-smooth);
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-ocean);
+            background: var(--color-white);
+            box-shadow: 0 0 0 3px rgba(10, 77, 104, 0.1);
+        }
+
+        .form-group input::placeholder {
+            color: var(--color-text-very-light);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group-full {
+            grid-column: 1 / -1;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+            font-family: var(--font-body);
+        }
+
+        .form-section-title {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-ocean);
+            margin-top: 30px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(10, 77, 104, 0.2);
+            letter-spacing: 0.5px;
+        }
+
+        .form-section-title:first-child {
+            margin-top: 0;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            cursor: pointer;
+            accent-color: var(--color-ocean);
+        }
+
+        .checkbox-item label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: var(--font-weight-regular);
+            font-size: 0.95rem;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 40px;
+            justify-content: center;
+        }
+
+        .btn-submit {
+            flex: 1;
+            max-width: 300px;
+            padding: 16px 32px;
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: var(--font-weight-semibold);
+            background: linear-gradient(135deg, var(--color-ocean) 0%, var(--color-ocean-light) 100%);
+            color: var(--color-white);
+            border: none;
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: all var(--transition-smooth);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(10, 77, 104, 0.3);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(10, 77, 104, 0.4);
+            background: linear-gradient(135deg, var(--color-ocean-light) 0%, var(--color-ocean-lighter) 100%);
+        }
+
+        .btn-back {
+            flex: 1;
+            max-width: 300px;
+            padding: 16px 32px;
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: var(--font-weight-semibold);
+            background: rgba(10, 77, 104, 0.1);
+            color: var(--color-ocean);
+            border: 2px solid var(--color-ocean);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: all var(--transition-smooth);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-back:hover {
+            background: rgba(10, 77, 104, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(10, 77, 104, 0.2);
+        }
+
+        .required {
+            color: var(--color-coral);
+        }
+
+        .form-info {
+            background: rgba(5, 191, 219, 0.05);
+            border-left: 4px solid var(--color-ocean-lighter);
+            padding: 16px 20px;
+            border-radius: var(--radius-md);
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+            color: var(--color-text-dark);
+            font-family: var(--font-body);
+        }
+
+        .form-info strong {
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-ocean);
+        }
+
+        @media (max-width: 767px) {
+            .booking-container {
+                margin: 40px auto;
+                padding: 0 var(--spacing-sm);
+            }
+
+            .booking-form {
+                padding: 32px 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn-submit,
+            .btn-back {
+                max-width: none;
+            }
+
+            .booking-header h1 {
+                font-size: var(--font-h2);
+            }
+        }
+
+        @media (max-width: 479px) {
+            .booking-form {
+                padding: 24px 16px;
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+            .booking-header h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: rgba(45, 80, 22, 0.1);
+            border-left: 4px solid var(--color-green);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            color: var(--color-green);
+            font-family: var(--font-body);
+            margin-bottom: 20px;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER / NAVIGATION -->
+    <header class="header" id="navbar">
+        <nav class="navbar">
+            <div class="navbar-container">
+                <!-- Logo -->
+                <div class="logo">
+                    <h1 class="logo-text">Koki Boner</h1>
+                    <p class="logo-tagline">Rodrigues Island</p>
+                </div>
+
+                <!-- Navigation Links -->
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html#home" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="index.html#villa" class="nav-link">Villa</a></li>
+                    <li class="nav-item"><a href="index.html#restaurant" class="nav-link">Restaurant</a></li>
+                    <li class="nav-item"><a href="index.html#experiences" class="nav-link">Experiences</a></li>
+                    <li class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- BOOKING PAGE -->
+    <div class="booking-page">
+        <div class="booking-container">
+            <!-- Header -->
+            <div class="booking-header">
+                <h1>Plan Your Escape</h1>
+                <p>Secure your dates and experience the ultimate island luxury</p>
+            </div>
+
+            <!-- Success Message -->
+            <div class="success-message" id="successMessage">
+                ✓ Reservation request submitted successfully! We'll contact you shortly to confirm your booking.
+            </div>
+
+            <!-- Booking Form -->
+            <form class="booking-form" id="bookingForm">
+                <div class="form-info">
+                    <strong>📅 Special Offer:</strong> Book now and receive complimentary welcome drinks at our restaurant!
+                </div>
+
+                <!-- Guest Information Section -->
+                <h3 class="form-section-title">Guest Information</h3>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name <span class="required">*</span></label>
+                        <input type="text" id="firstName" name="firstName" placeholder="John" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name <span class="required">*</span></label>
+                        <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" placeholder="john.doe@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number <span class="required">*</span></label>
+                        <input type="tel" id="phone" name="phone" placeholder="+230 123 4567" required>
+                    </div>
+                </div>
+
+                <div class="form-group form-group-full">
+                    <label for="country">Country <span class="required">*</span></label>
+                    <input type="text" id="country" name="country" placeholder="Your Country" required>
+                </div>
+
+                <!-- Reservation Details Section -->
+                <h3 class="form-section-title">Reservation Details</h3>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="checkIn">Check-In Date <span class="required">*</span></label>
+                        <input type="date" id="checkIn" name="checkIn" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkOut">Check-Out Date <span class="required">*</span></label>
+                        <input type="date" id="checkOut" name="checkOut" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="guests">Number of Guests <span class="required">*</span></label>
+                        <select id="guests" name="guests" required>
+                            <option value="">Select number of guests</option>
+                            <option value="1">1 Guest</option>
+                            <option value="2">2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
+                            <option value="5">5 Guests</option>
+                            <option value="6">6+ Guests</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="rooms">Number of Rooms <span class="required">*</span></label>
+                        <select id="rooms" name="rooms" required>
+                            <option value="">Select number of rooms</option>
+                            <option value="1">1 Room</option>
+                            <option value="2">2 Rooms</option>
+                            <option value="3">3 Rooms</option>
+                            <option value="4">4+ Rooms</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group form-group-full">
+                    <label for="roomType">Room Type Preference</label>
+                    <select id="roomType" name="roomType">
+                        <option value="">Select room type</option>
+                        <option value="deluxe">Deluxe Ocean View</option>
+                        <option value="villa">Private Villa</option>
+                        <option value="suite">Beachfront Suite</option>
+                        <option value="any">Any Available</option>
+                    </select>
+                </div>
+
+                <!-- Special Requests Section -->
+                <h3 class="form-section-title">Special Requests & Preferences</h3>
+
+                <div class="form-group form-group-full">
+                    <label>Add-On Services</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="airportTransfer" name="services" value="airportTransfer">
+                            <label for="airportTransfer">Airport Transfer (+$50)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="dinnerReservation" name="services" value="dinnerReservation">
+                            <label for="dinnerReservation">Dinner Reservation at Our Restaurant</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="spa" name="services" value="spa">
+                            <label for="spa">Spa & Wellness Package</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="islandTour" name="services" value="islandTour">
+                            <label for="islandTour">Island Tour Guide (+$75)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group form-group-full">
+                    <label for="specialRequests">Special Requests & Dietary Requirements</label>
+                    <textarea id="specialRequests" name="specialRequests" placeholder="Let us know any special requirements, dietary restrictions, or preferences..."></textarea>
+                </div>
+
+                <!-- Privacy & Booking Policy -->
+                <div class="form-group form-group-full">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="agree" name="agree" required>
+                        <label for="agree">I agree to the <strong>Terms & Conditions</strong> and <strong>Privacy Policy</strong> <span class="required">*</span></label>
+                    </div>
+                </div>
+
+                <!-- Buttons -->
+                <div class="button-group">
+                    <a href="index.html" class="btn-back">← Back to Home</a>
+                    <button type="submit" class="btn-submit">Submit Reservation</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- SCROLL NAVBAR HIDE/SHOW SCRIPT -->
+    <script>
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
+        const scrollThreshold = 100;
+
+        window.addEventListener('scroll', function() {
+            let currentScroll = window.scrollY;
+
+            // Hide navbar when scrolling down, show when scrolling up
+            if (currentScroll > lastScrollTop && currentScroll > scrollThreshold) {
+                // Scrolling down
+                navbar.style.transform = 'translateY(-100%)';
+            } else {
+                // Scrolling up or near top
+                navbar.style.transform = 'translateY(0)';
+            }
+
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        });
+
+        // Booking Form Handler
+        const bookingForm = document.getElementById('bookingForm');
+        const successMessage = document.getElementById('successMessage');
+
+        bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Collect form data
+            const formData = new FormData(bookingForm);
+            const data = {
+                firstName: formData.get('firstName'),
+                lastName: formData.get('lastName'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                country: formData.get('country'),
+                checkIn: formData.get('checkIn'),
+                checkOut: formData.get('checkOut'),
+                guests: formData.get('guests'),
+                rooms: formData.get('rooms'),
+                roomType: formData.get('roomType'),
+                services: formData.getAll('services'),
+                specialRequests: formData.get('specialRequests'),
+                submittedAt: new Date().toLocaleString()
+            };
+
+            // Store in localStorage (for demonstration)
+            let reservations = JSON.parse(localStorage.getItem('reservations') || '[]');
+            reservations.push(data);
+            localStorage.setItem('reservations', JSON.stringify(reservations));
+
+            // Show success message
+            successMessage.classList.add('show');
+            bookingForm.style.display = 'none';
+
+            // Log the data (you can send this to a server)
+            console.log('Reservation Data:', data);
+
+            // Alternative: Send to email or server
+            // You can replace this with actual backend integration
+            alert('Thank you for your reservation request!\n\nWe have received your information and will contact you shortly at:\n' + formData.get('email'));
+
+            // Reset after 3 seconds and show form again
+            setTimeout(() => {
+                bookingForm.reset();
+                bookingForm.style.display = 'block';
+                successMessage.classList.remove('show');
+            }, 5000);
+        });
+
+        // Set minimum check-in date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('checkIn').setAttribute('min', today);
+        document.getElementById('checkOut').setAttribute('min', today);
+
+        // Update check-out minimum date when check-in changes
+        document.getElementById('checkIn').addEventListener('change', function() {
+            document.getElementById('checkOut').setAttribute('min', this.value);
+        });
+    </script>
+</body>
+</html>

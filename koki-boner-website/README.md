@@ -48,55 +48,7 @@ koki-boner-website/
 
 ---
 
-## 🚀 HOW TO RUN IN VS CODE
 
-### Method 1: Using Live Server Extension (Recommended)
-
-1. **Install Live Server Extension**
-   - Open VS Code
-   - Go to Extensions (Ctrl+Shift+X)
-   - Search for "Live Server"
-   - Install by Ritwick Dey
-
-2. **Run the Website**
-   - Right-click on `index.html`
-   - Select "Open with Live Server"
-   - Website opens in your default browser at `http://127.0.0.1:5500`
-
-3. **Auto-Reload**
-   - Make CSS changes and save (Ctrl+S)
-   - Browser auto-refreshes
-
-### Method 2: Using Python (No Extensions Needed)
-
-1. **Open Terminal in VS Code**
-   - Press `Ctrl+Backtick` or go to Terminal > New Terminal
-
-2. **Navigate to Project Folder**
-   ```bash
-   cd path/to/koki-boner-website
-   ```
-
-3. **Start Python Server**
-   - Python 3:
-     ```bash
-     python -m http.server 8000
-     ```
-   - Python 2:
-     ```bash
-     python -m SimpleHTTPServer 8000
-     ```
-
-4. **Open in Browser**
-   - Go to `http://localhost:8000`
-
-### Method 3: Direct File Opening
-
-- Drag `index.html` directly into your browser
-- No server needed (all CSS works)
-- Note: Some advanced CSS features may work better with a server
-
----
 
 ## 🖼️ IMAGE REPLACEMENT GUIDE
 
@@ -209,70 +161,6 @@ Gold Accent:         #d4af37
 
 ---
 
-## 🛠️ CUSTOMIZATION GUIDE
-
-### Changing Colors
-
-Edit CSS variables in `style.css` (top of file, lines 1-30):
-
-```css
-:root {
-    --color-ocean: #0a4d68;  /* Change here */
-    --color-sand: #f4e4c1;   /* Change here */
-    /* ... */
-}
-```
-
-### Changing Fonts
-
-Replace Google Font import (CSS line ~5):
-
-```css
-@import url('https://fonts.googleapis.com/css2?family=YOUR_FONT:wght@700;900&display=swap');
-```
-
-### Adjusting Spacing
-
-Modify spacing variables in `:root` section:
-
-```css
---spacing-lg: 32px;  /* Default is 32px */
---spacing-xl: 48px;
-```
-
-### Disabling Animations
-
-To disable animations globally, add to CSS:
-
-```css
-* {
-    animation: none !important;
-    transition: none !important;
-}
-```
-
-### Adjusting Hero Height
-
-Change in CSS (line ~520):
-
-```css
-.hero {
-    height: 100vh;  /* Change to 80vh, 90vh, etc. */
-}
-```
-
-### Changing Button Styles
-
-Modify button classes in CSS (lines ~250-290):
-
-```css
-.btn-primary {
-    background-color: #your-color;
-    padding: your-padding;
-}
-```
-
----
 
 ## 📱 RESPONSIVE DESIGN BREAKDOWN
 
@@ -371,64 +259,6 @@ Footer social links (Lines ~553-557):
 
 ---
 
-## 🎓 UNIVERSITY DESIGN EVALUATION CHECKLIST
-
-✅ **Visual Design**
-- Professional luxury aesthetic
-- Consistent color scheme
-- Elegant typography
-- Balanced whitespace
-
-✅ **User Experience**
-- Clear navigation
-- Logical information hierarchy
-- Intuitive layout
-- Smooth interactions
-
-✅ **Responsive Design**
-- Works on all screen sizes
-- Touch-friendly mobile interface
-- Flexible layouts
-
-✅ **Technical Quality**
-- Clean HTML structure
-- Well-organized CSS
-- Semantic markup
-- No external dependencies (pure HTML/CSS)
-
-✅ **Performance**
-- Fast loading
-- Smooth animations
-- Optimized code
-
-✅ **Branding**
-- Communicates luxury
-- Reflects island hospitality
-- Professional presentation
-
----
-
-## 🐛 TROUBLESHOOTING
-
-### Images Not Showing
-- Ensure image files are in the `images/` folder
-- Check image file names match exactly (case-sensitive)
-- Use correct file extensions (.jpg, .png, etc.)
-
-### Animations Not Working
-- Clear browser cache (Ctrl+Shift+Delete)
-- Use a modern browser (Chrome, Firefox, Safari, Edge)
-- Check CSS file is linked correctly
-
-### Sticky Navigation Not Working
-- Make sure to add JavaScript or use native CSS (scroll behavior)
-- Current implementation uses pure CSS
-
-### Font Not Displaying
-- Check Google Fonts connection (needs internet)
-- Verify font import in `<head>` section
-
----
 
 ## 📚 RESOURCES & REFERENCES
 
@@ -472,18 +302,12 @@ To deploy this website:
 
 ---
 
-## 📄 LICENSE & CREDITS
-
-**Project:** Koki Boner Villa & Resto Bar Website Redesign  
-**Created:** 2024  
-**Purpose:** University Design Project  
-**Fonts:** Google Fonts (Playfair Display, Lato)  
 
 ---
 
 ## 🎯 NEXT STEPS & ENHANCEMENTS
 
-### Optional JavaScript Enhancements (If Needed Later)
+### Optional JavaScript Enhancements 
 - Form submission handling
 - Image gallery lightbox
 - Smooth scroll behavior
